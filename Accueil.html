@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Université Ain témouchent</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  
+  
+</head>
+<body>
+  <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+      <div class="logo" title="Accueil"><a href="Accueil.html"><img src="log.jpg" width="70px" height="75px"></a></div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="bare_languealfa">
+        <form method="POST" action="reception.php">
+          <select name="Language">
+            <option value="ar">ar</option>
+            <option value="fr" selected>Fr</option>
+            <option value="en">En</option>
+            </select>
+        </form>
+      </div>
+      <ul class="links">
+          <li><a href="Accueil.html">ACCUEIL</a></li>
+          <li>
+            <a href="#" class="desktop-link">UBBAT</a>
+            <input type="checkbox" id="show-features1">
+            <label for="show-features1">UBBAT</label>
+            <ul>
+              <li><a href="#PRESENTATION">PRESENTATION</a></li>
+              <li><a href="bio.html">BIOGRAPHI BELADJ BOUCHAIIB</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="desktop-link">FORMATION</a></li>
+          <li>
+            <a href="#" class="desktop-link">INSTITUTS</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">INSTITUTS</label>
+            <ul>
+              <li>
+                <a href="Faculté.html" class="desktop-link">SCIENCE ET TECHNOLOGIE</a>
+                <input type="checkbox" id="show-items">
+                <label for="show-items">SCIENCE ET TECHNOLOGIE</label>
+              </li>
+              <li>
+                <a href="#" class="desktop-link">SCIENCE ECONOMIQUE</a>
+                <input type="checkbox" id="show-items">
+                <label for="show-items">SCIENCE ECONOMIQUE</label>
+              </li>
+              <li>
+                <a href="#" class="desktop-link">LETTRES ET LANGUES</a>
+                <input type="checkbox" id="show-items">
+                <label for="show-items">LETTRES ET LANGUES</label>
+              </li>
+            </ul>
+          </li>
+          <li><a href="contact.html">CONTACTS</a></li>
+          <li><a href="inscription.html">INSCRIPTION</a></li>
+        </ul>
+      </div>
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" class="search-box">
+        <input type="text" placeholder="faire votre recherche..." required>
+        <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+      </form>
+    </nav>
+  </div>
+  <section class="home">
+     <div class="slider">
+        <div class="slide active" style="background-image: url('rami.jpg'); opacity:0.5;">
+            <div class="container">
+                <div class="caption">
+                    <h1>BIENVENU DANS UNIVERSITE BELADJ BOUCHAIIB 46</h1>
+                    <p> تنظم جامعة بلحاج بوشعيب ابواب مفتوحة  افتراضيا لحاملي شهادة بكالوريا 2021</p>
+                    <a href="bac.univ-temouchent.edu.dz">Portail des nouveaux bacheliers </a>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('esi.jpg');opacity: 0.5;">
+            <div class="container">
+                <div class="caption">
+                    <h1>TRANSFERT EXTERNE</h1>
+                    <p>15 SEPTEMBER /30 OCTOBRE.</p>
+                    <a href="">PLUS D'INFORMATION</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('belleuat.jpg');opacity: 0.7;">
+            <div class="container">
+                <div class="caption">
+                    <h1>ENSEIGNEMENT A DISTANCE</h1>
+                    <p>SITE LEARNING.</p>
+                    <a href="">INFORMATION</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    <!-- controls  -->
+    <div class="controls">
+        <div class="prev">&lt;</div>
+        <div class="next">&gt;</div>
+    </div>
+    <!-- indicators -->
+    <div class="indicator">
+    </div>
+  </section>
+  <script>
+    const slides=document.querySelector(".slider").children;
+    const prev=document.querySelector(".prev");
+    const next=document.querySelector(".next");
+    const indicator=document.querySelector(".indicator");
+    let index=0;
+      prev.addEventListener("click",function(){
+          prevSlide();
+          updateCircleIndicator(); 
+          resetTimer();
+      })
+   
+      next.addEventListener("click",function(){
+         nextSlide(); 
+         updateCircleIndicator();
+         resetTimer();
+         
+      })
+   
+      // create circle indicators
+       function circleIndicator(){
+           for(let i=0; i< slides.length; i++){
+             const div=document.createElement("div");
+                   div.innerHTML=i+1;
+                   div.setAttribute("onclick","indicateSlide(this)")
+                   div.id=i;
+                   if(i==0){
+                     div.className="active";
+                   }
+                  indicator.appendChild(div);
+           }
+       }
+       circleIndicator();
+   
+       function indicateSlide(element){
+            index=element.id;
+            changeSlide();
+            updateCircleIndicator();
+            resetTimer();
+       }
+        
+       function updateCircleIndicator(){
+         for(let i=0; i<indicator.children.length; i++){
+           indicator.children[i].classList.remove("active");
+         }
+         indicator.children[index].classList.add("active");
+       }
+   
+      function prevSlide(){
+         if(index==0){
+           index=slides.length-1;
+         }
+         else{
+           index--;
+         }
+         changeSlide();
+      }
+   
+      function nextSlide(){
+         if(index==slides.length-1){
+           index=0;
+         }
+         else{
+           index++;
+         }
+         changeSlide();
+      }
+   
+      function changeSlide(){
+               for(let i=0; i<slides.length; i++){
+                  slides[i].classList.remove("active");
+               }
+   
+          slides[index].classList.add("active");
+      }
+   
+      function resetTimer(){
+          // when click to indicator or controls button 
+          // stop timer 
+          clearInterval(timer);
+          // then started again timer
+          timer=setInterval(autoPlay,4000);
+      }
+    
+     
+     function autoPlay(){
+         nextSlide();
+         updateCircleIndicator();
+     }
+   
+     let timer=setInterval(autoPlay,4000);
+   </script>
+     <div class="pre" style="text-align: center;">
+       <h2>Présentation</h2>
+       <p id="PRESENTATION">
+       Université ain temouchent en premier est un centre apres des années noté comme université (UBBAT)Université belhadj bouchaib par rapport morte belhadj bochaib la position de cette université est sur route bellabess uat contient 5block ou plus A B C D E H,les 4premier pour l'institut science et technique,economique... l'institu de cience contient les departement SM MI ST SNV,en debut de cette université possede des enseignants interne et externe wilaya comme wilayade telemcen et oran ,ain temouchent(interne)
+       .Dans le domaine de la recherche scientifique et du développement technologique.
+       <h3>les tâches fondamentales de l'université sont :</h3>
+
+       Contribuer à l'effort national de recherche scientifique et de développement technologique.
+       Promotion et diffusion de la culture nationale.
+       Participation au soutien des capacités scientifiques nationales.
+       Valoriser les résultats de la recherche scientifique et diffuser l'information scientifique et technique.
+       Participation au sein du groupe scientifique et culturel international à l'échange et à l'enrichissement des connaissances.
+     <h3>Politique de configuration :</h3>
+     <ul>
+     <li>Configuration complète des équipes.</li>
+     <li>Terminez les majors et les phases de déverrouillage.</li>
+     <li> Former les équipes de formation aux méthodes modernes et innovantes.</li>
+     <li> Activer le rôle de la formation dans le cadre des laboratoires de recherche.</li>
+     <li> Achèvement de la construction de la balance documentaire.</li>
+     <li> Développer des offres de formation professionnelle</li>
+     <li> faciliter l'insertion professionnelle</li>
+    </ul>
+    </p>
+     </div>
+    <main>
+    <h2 style="text-align: center;text-decoration: underline;" id="titri">Services</h2>
+    <div class="mere">
+      <div class="l1">
+        <div class="text"><h3>Avis D'appel D'offres</h3></div>
+        <div class="lien"><a href="#">lire la suite</a></div>
+      </div>
+    <div class="l2">
+      <div class="text"><h3>Logement des Enseignants</h3></div>
+      <div class="lien"><a href="#">lire la suite</a></div>
+    </div>
+    <div class="l3">
+      <div class="text"><h3>Aonoces de consultaion</h3></div>
+      <div class="lien"><a href="#">lire la suite</a></div>
+    </div>
+    <div class="l4">
+      <div class="text"><h3>Procés verbaux CRUO</h3></div>
+      <div class="lien"><a href="#">lire la suite</a></div>
+    </div>
+  </div>
+  <hr>
+  <h2 style="text-align: center;text-decoration: underline;">Conseils de UBBAT</h2>
+   <div class="pere">
+    <div class="m1">
+      <div class="text"><h3>Conseils scientifique</h3></div>
+      <div class="lien"><a href="#">lire la suite</a></div>
+    </div>
+  <div class="m2">
+    <div class="text"><h3>Conseils d'administration</h3></div>
+    <div class="lien"><a href="#">lire la suite</a></div>
+  </div>
+  <div class="m3">
+    <div class="text"><h3>Commissions paritaire</h3></div>
+    <div class="lien"><a href="#">lire la suite</a></div>
+  </div>
+  </div>
+  <hr>
+  <div class="stat">
+  <h2 style="text-align: center;">
+    Statistiques des étudiants universitaires</h2>
+   <div class="etats">
+     <div class="doc">
+       <h4>Etudiants doctorat</h4>
+       <p>1000</p>
+     </div>
+     <div class="mast">
+      <h4>Etudiants master</h4>
+      <p>3090</p>
+     </div>
+     <div class="lic">
+      <h4>Etudiants doctorat</h4>
+      <p>10000</p>
+     </div>
+   </div></div>
+</main>
+<hr>
+ <div class="grp">
+<div class="footer2">
+  <h3 style="text-align: center;">CONSULTER AVEC NOUS</h3>
+ <div class="classm">
+   <ul>
+    <li><a href="#">CUBBAT en chiffres</a></li> 
+    <li><a href="#">Annuaire téléphonique</a></li> 
+    <li><a href="#">Archives</a></li> 
+   </ul>
+</div>
+</div>
+<div class="log"><img src="logmiao.jpg" height="100%"></div>
+</div>
+<hr>
+<div class="footer">
+    <div class="globale-services">
+        <h3>NOS SERVICES</h3>
+        <div class="liste-services">
+            <li><a href="#">HEBERGEMENT</a></li>
+            <li><a href="#">TRANSPORT</a></li>
+            <li><a href="#">UFC</a></li>
+            <li><a href="#">RESTAURANT</a></li>
+            <li><a href="http://elearning.univ-temouchent.edu.dz/">E-LEARNING</a></li>
+        </div>
+    </div>
+    <div class="ovr-horaires">
+        <h3>HORAIRE D'OUVERTS</h3>
+        <div class="liste-horaires">
+            <li>✔️ Lun 08h-17h</li>
+            <li>✔️ Mar 08h-17h</li>
+            <li>✔️ Mer 08h-17h</li>
+            <li>✔️ Jeu 08h-17h</li>
+            <li>✔️ Dim 08h-17h</li>
+            <li>✔️ Sam 08h-17h</li> 
+            <li>❌ Ven fermé</li>
+        </div>
+    </div>
+    <div class="lio">
+      <h3>LIENS UTILES</h3>
+      <div class="lien-utiles">
+          <li><a href="#">SNDL</a></li>
+          <li><a href="#">MESRS</a></li>
+          <li><a href="#">DGRSDT</a></li>
+          <li><a href="#">CNEPRU</a></li>
+          <li><a href="#">Université Algerien</a></li>
+      </div>
+    </div>
+   
+    <div class="res-soc">  
+        <h3>NOS RESEAUX</h3>
+        <div class="liste-media">
+           <a href="#" class="fab fa-facebook">&nbsp;&nbsp;FACEBOOK</a>
+           <a href="#" class="fab fa-youtube">&nbsp;&nbsp;YOUTUBE</a>  
+           <a href="#" class="fab fa-instagram">&nbsp;&nbsp;INSTAGRAM</a>
+           <a href="#" class="fab fa-github">&nbsp;&nbsp;GITHUB</a>
+        </div>
+    </div>
+    
+    <div class="bare_langue">
+      <form method="POST" action="reception.php">
+        <select name="Language">
+          <option value="arabe">العربية</option>
+          <option value="france" selected>Français</option>
+          <option value="englais">Englais</option>
+          </select>
+      </form>
+    </div>
+  </div>
+  <div class="footer-terminite">
+    <center><h4>Copyright © 2021 Université Belhadj Bouchaib Ain-Temouchent - Tous droits réservés</h4></center>
+  </div>
+
+</body>
+</html>

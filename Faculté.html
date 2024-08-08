@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>UBBAT/FACULTE S</title>
+  <link rel="stylesheet" href="stylefaculte.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+          <input type="checkbox" id="show-search">
+          <input type="checkbox" id="show-menu">
+          <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+          <div class="content">
+          <div class="logo" title="Accueil"><a href="#"><img src="log.jpg" width="70px" height="75px"></a></div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="bare_languealfa">
+            <form method="POST" action="reception.php">
+              <select name="Language">
+                <option value="ar">ar</option>
+                <option value="fr" selected>Fr</option>
+                <option value="en">En</option>
+                </select>
+            </form>
+          </div>
+          <ul class="links">
+              <li><a href="Accueil.html">ACCUEIL</a></li>
+              <li>
+                <a href="#" class="desktop-link">DEPARTEMENTS</a>
+                <input type="checkbox" id="show-features1">
+                <label for="show-features1">DEPARTEMENTS</label>
+                <ul>
+                  <li><a href="#">SCIENCE TECHNIQUE</a></li>
+                  <li><a href="#">SCIENCE MATIERE</a></li>
+                  <li><a href="departemant.html">Mathématiques-Informatique</a></li>
+                  <li><a href="#">SCIENCE DE LA NATURE ET VIE</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#PRESENTATION" class="desktop-link">PRESENTATION</a>
+                <input type="checkbox" id="show-features">
+                <label for="show-features">PRESENTATION</label>
+              </li>
+              <li>
+                <a href="#" class="desktop-link">FACULTES</a>
+                <input type="checkbox" id="show-services">
+                <label for="show-services">FACULTES</label>
+                <ul>
+                  <li>
+                    <a href="Faculté.html" class="desktop-link">SCIENCE ET TECHNOLOGIE</a>
+                    <input type="checkbox" id="show-items">
+                    <label for="show-items">SCIENCE ET TECHNOLOGIE</label>
+                  </li>
+                  <li>
+                    <a href="#" class="desktop-link">SCIENCE ECONOMIQUE</a>
+                    <input type="checkbox" id="show-items">
+                    <label for="show-items">SCIENCE ECONOMIQUE</label>
+                  </li>
+                  <li>
+                    <a href="#" class="desktop-link">LETTRES ET LANGUES</a>
+                    <input type="checkbox" id="show-items">
+                    <label for="show-items">LETTRES ET LANGUES</label>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="contact.html">CONTACTS</a></li>
+            </ul>
+          </div>
+          <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+          <form action="#" class="search-box">
+            <input type="text" placeholder="faire votre recherche..." required>
+            <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+          </form>
+         
+        </nav>
+      </div>
+    <section class="home">
+        <div class="slider">
+           <div class="slide active" style="background-image: url('Science.jpg'); opacity:0.3;">
+               <div class="container">
+                   <div class="caption">
+                       <h1>BIENVENU sur l'espace de Institu de Science 46</h1>
+                       <p> Avoir les Informations sur le Prefond du science (chimie..)</p>
+                       <a href="Fclt.html">Plus de Données</a>
+                   </div>
+               </div>
+           </div>
+           <div class="slide" style="background-image: url('Snv.jpg');">
+               <div class="container">
+                   <div class="caption"> 
+                       <p>Donner Tous notre Science et reconnaisance sur la nature et la vie..pour comprender notre terre</p>
+                       <h2>Faculté Science de nature et vie<h2>
+                       <a href="Fclt.html">Voir notre terre</a>
+                   </div>
+               </div>
+           </div>
+           <div class="slide" style="background-image: url('Tchnlg.jpg');opacity: 0.7;">
+               <div class="container">
+                   <div class="caption">
+                       <h1>La technologie et les médias sont la base du progrès et du développement à notre époque, 
+                       nous devons donc connaître la base de cette science et travailler avec elle. C'est le principe d'une nouvelle vie dans le monde.</h1>
+                       <p>SITE LEARNING.Faculté Téchnologie facilité les chause a vous</p>
+                       <a href="">INFORMATION</a>
+                   </div>
+               </div>
+           </div>
+           <div class="slide" style="background-image: url('lettre-snc-humain.jpg');opacity: 0.7;">
+               <div class="container">
+                   <div class="caption">
+                       <h1>L'arabe et la science humain </h1>
+   
+                       <a href="">Voir-Plus</a>
+                   </div>
+               </div>
+           </div>
+           <div class="slide" style="background-image: url('Gst-Drt.jpg');opacity: 0.7;">
+               <div class="container">
+                   <div class="caption">
+                       <h1>Le mOnde est Controlés Par sa gestion économique,
+                           chaque humain doit etre avoir sans droit qu'ils sont pouvoir</h1>
+                           <h1>Faculté de Droit et de Gestion</h1>
+                       <a href="">Droit Pouvoir</a>
+                   </div>
+               </div>
+           </div>
+        </div>
+      
+       <!-- controls  -->
+       <div class="controls">
+           <div class="prev">&lt;</div>
+           <div class="next">&gt;</div>
+       </div>
+   
+       <!-- indicators -->
+       <div class="indicator">
+       </div>
+     </section>
+      <script>
+        const slides=document.querySelector(".slider").children;
+        const prev=document.querySelector(".prev");
+        const next=document.querySelector(".next");
+        const indicator=document.querySelector(".indicator");
+        let index=0;
+          prev.addEventListener("click",function(){
+              prevSlide();
+              updateCircleIndicator(); 
+              resetTimer();
+          })
+       
+          next.addEventListener("click",function(){
+             nextSlide(); 
+             updateCircleIndicator();
+             resetTimer();
+             
+          })
+       
+          // create circle indicators
+           function circleIndicator(){
+               for(let i=0; i< slides.length; i++){
+                 const div=document.createElement("div");
+                       div.innerHTML=i+1;
+                       div.setAttribute("onclick","indicateSlide(this)")
+                       div.id=i;
+                       if(i==0){
+                         div.className="active";
+                       }
+                      indicator.appendChild(div);
+               }
+           }
+           circleIndicator();
+       
+           function indicateSlide(element){
+                index=element.id;
+                changeSlide();
+                updateCircleIndicator();
+                resetTimer();
+           }
+            
+           function updateCircleIndicator(){
+             for(let i=0; i<indicator.children.length; i++){
+               indicator.children[i].classList.remove("active");
+             }
+             indicator.children[index].classList.add("active");
+           }
+       
+          function prevSlide(){
+             if(index==0){
+               index=slides.length-1;
+             }
+             else{
+               index--;
+             }
+             changeSlide();
+          }
+       
+          function nextSlide(){
+             if(index==slides.length-1){
+               index=0;
+             }
+             else{
+               index++;
+             }
+             changeSlide();
+          }
+       
+          function changeSlide(){
+                   for(let i=0; i<slides.length; i++){
+                      slides[i].classList.remove("active");
+                   }
+       
+              slides[index].classList.add("active");
+          }
+       
+          function resetTimer(){
+              // when click to indicator or controls button 
+              // stop timer 
+              clearInterval(timer);
+              // then started again timer
+              timer=setInterval(autoPlay,4000);
+          }
+        
+         
+         function autoPlay(){
+             nextSlide();
+             updateCircleIndicator();
+         }
+       
+         let timer=setInterval(autoPlay,4000);
+       
+       
+        
+       
+       
+       
+       </script>
+     <hr>
+   <main>
+  <div class="w">  
+    <div class="textera">
+    <h2 style="text-align:center" id="PRESENTATION">Présentation:</h2>
+    <h3><b><i>Faculté Science:</i></b></h3>
+    <p><i><b>La Faculté de Science</b></i> de l’Université Belhadj Bouchaib propose des offres de formation riches et diversifiées au niveau des trois cycles universitaires: 
+       licence (premier cycle), Master (deuxième cycle) et Doctorat (troisième cycle). Elle aspire à l’excellence avec un enseignement de qualité en devenir et une recherche de pointe confirmée dans les  domaines Sciences de la Matière (SM) et Mathématiques-Informatique (MI),
+       avec les filières qui leur sont associées qui sont la physique, la chimie, les mathématiques et l’informatique. Elle héberge plusieurs laboratoires de recherche, 
+       de renommé établie, contribuant au rayonnement national et international de la Faculté, en particulier, et de l’université, 
+       en général.  La haute qualification des enseignants de la Faculté permet d’assurer un enseignement de haut niveau 
+       et profite aux étudiants des trois cycles qui bénéficient d’un encadrement de qualité et personnalisé.
+      </p>
+      </div>
+       <div class="image">
+           <img src="Sm.jpeg" width="100%">
+       </div>
+      </div>
+       <hr>
+       <div class="part2">
+       <div class="org">
+       <h3 style="font-size: 20px ;font-weight: 400 ;letter-spacing: 0px ;text-transform: none ;color: #223d71 ;margin-right: 30px ;">Organisation:</h3>
+       <b>L'institut est organisé en trois départements:</b>
+       <ul style= "list-style-type:disc">
+           <li> Département des mathématique et Informatique</li>
+           <ul style= "list-style-type:circle">
+               <li>filière: Informatique.</li>
+               <li>filière: Mathématique.</li>
+           </ul>
+           <li> Département des Science de la matiére</li>
+           <ul style= "list-style-type:circle">
+              <li>filière: chimie.</li>
+              <li>filière: physique.</li>
+           </ul>
+           <li> Département des Science de la natureet la vie</li>
+           <ul style= "list-style-type:circle">
+               <li>filière: Sciences biologique.</li>
+               <li>filière: Sciences Alimentaires.</li>
+               <li>filière: Sciences Agronomiques.</li>
+               <li>filière: Sciences Ecologiques.</li>     
+           </ul>   
+         </ul>     
+       </div>
+       <div class="ins">
+       <h5>Faculté technologie</h5>
+       <p><b>La Faculté de technologie</b> de Ain-Temouchent (<i>UBBAT</i>) est un établissement universitaire dont les principales missions sont :
+           - La formation universitaire dans les domaines scientifiques et techniques.
+           - La recherche appliquée et les études relatives à des thèmes prioritaires pour le développement de l’économie régionale et nationale.
+          Afin de réussir sa mission de formation, la faculté de technologie offre à ses étudiants un enseignement moderne semestriel et modulaire, alliant les aspects scientifiques et techniques fondamentaux avec de nouvelles orientations technologiques adaptées au monde du travail. Elle dispose d’un corps enseignant qualifié et d’un parc de matériel scientifique d’enseignement et de recherche moderne.
+       </p> Aura des Domaine Assuré dans se institu .
+       <h5">Filières Asuurées:</h5>
+       <ul> ST 
+           <li> Aéronauique</li>
+           <li> Génie Civil</li>
+           <li> Génie Mécanique</li>
+           <li> Génie éléctrique</li>
+           <li> Génie des Procédes</li>
+           <li> Télécommunication</li>
+           <li> Hydraulique</li>
+           <li> Travaux Publics</li>
+       </ul>
+      </div>
+    </div>
+      </main>
+           <br>
+           <hr>
+           <div class="part2">
+            <div class="org">
+           <p> Aprés Un socle commun, l'étudiant peut suivre l'une des spécialités de licence ci-dessous : 
+           <ul style="list-style-type:circle">
+           <li>Génie Civil</li>
+           <li>Travaux Publics</li>
+           <li>Hydraulique</li>
+           <li>Energitique</li>
+           <li>Construction Mécanique</li>
+           <li>Génie des Matéiaux</li>
+           <li>Génie des Procédes</li>
+           </ul></p></div>
+       <div class="ins">
+           <img src="lmd.png">
+       </div>
+       </div>
+       <hr>
+       <div>
+           <h3>Formation & Recherches:</h3>       
+        L'institut assure des formations autour des deux paliers :
+        <div>
+        <ol>
+             <li>Licences:</li>
+             <div>
+             <p> Les offres académiques incluent 3 licences et 2 masters. La filière informatique vous donne la possibilité d’acquérir des compétences pratiques nécessaires pour intégrer le monde du travail ainsi qu’une formation fondamentale pour candidater à une formation doctorale.</p></div>
+             <li>Doctorat!</li>
+             <div>
+             <p>L'institut propose une formation de Post graduation Spécialisée en Réseaux et Sécurité Informatique. Cette formation est destinée aux : 
+                <ul style="list-style-type:disc"> 
+               <li>professionnels en exercice dans le domaine de l’administration de systèmes et de réseaux,</li> 
+               <li>les personnes chargées de la prise de décision dans le cadre l’informatisation de la protection de l’information, etc.</li>
+               <li>toutes les personnes titulaires d’une graduation en informatique</li>
+                </ul>
+               A l’issue de cette formation, l’étudiant qui a suivi avec succès le programme sera directement opérationnel dans la prise en charge des problèmes de performance et de sécurité informatique au sein de son organisme.
+               </p></div>
+        Peut avoir aussi des Recherches sur des demaines PGS/SI Web-Sécurité.....Que aide de Spécialisée ou demaines de l'ingénieur d'une graduation vers un professeur.    </ol>
+            </div>              
+       </div>
+      </main>
+   <hr>
+ <div class="grp">
+<div class="footer2">
+  <h3 style="text-align: center;">CONSULTER AVEC NOUS</h3>
+ <div class="classm">
+   <ul>
+    <li><a href="#">CUBBAT en chiffres</a></li> 
+    <li><a href="#">Annuaire téléphonique</a></li> 
+    <li><a href="#">Archives</a></li> 
+   </ul>
+</div>
+</div>
+<div class="log"><img src="logmiao.jpg" height="100%"></div>
+</div>
+<hr>
+<div class="footer">
+    <div class="globale-services">
+        <h3>NOS SERVICES</h3>
+        <div class="liste-services">
+            <li><a href="#">HEBERGEMENT</a></li>
+            <li><a href="#">TRANSPORT</a></li>
+            <li><a href="#">UFC</a></li>
+            <li><a href="#">RESTAURANT</a></li>
+            <li><a href="http://elearning.univ-temouchent.edu.dz/">E-LEARNING</a></li>
+        </div>
+    </div>
+    <div class="ovr-horaires">
+        <h3>HORAIRE D'OUVERTS</h3>
+        <div class="liste-horaires">
+            <li>✔️ Lun 08h-17h</li>
+            <li>✔️ Mar 08h-17h</li>
+            <li>✔️ Mer 08h-17h</li>
+            <li>✔️ Jeu 08h-17h</li>
+            <li>✔️ Dim 08h-17h</li>
+            <li>✔️ Sam 08h-17h</li> 
+            <li>❌ Ven fermé</li>
+        </div>
+    </div>
+    <div class="lio">
+      <h3>LIENS UTILES</h3>
+      <div class="lien-utiles">
+          <li><a href="#">SNDL</a></li>
+          <li><a href="#">MESRS</a></li>
+          <li><a href="#">DGRSDT</a></li>
+          <li><a href="#">CNEPRU</a></li>
+          <li><a href="#">Université Algerien</a></li>
+      </div>
+    </div>
+   
+    <div class="res-soc">  
+        <h3>NOS RESEAUX</h3>
+        <div class="liste-media">
+           <a href="#" class="fab fa-facebook">&nbsp;&nbsp;FACEBOOK</a>
+           <a href="#" class="fab fa-youtube">&nbsp;&nbsp;YOUTUBE</a>  
+           <a href="#" class="fab fa-instagram">&nbsp;&nbsp;INSTAGRAM</a>
+           <a href="#" class="fab fa-github">&nbsp;&nbsp;GITHUB</a>
+        </div>
+    </div>
+    
+    <div class="bare_langue">
+      <form method="POST" action="reception.php">
+        <select name="Language">
+          <option value="arabe">العربية</option>
+          <option value="france" selected>Français</option>
+          <option value="englais">Englais</option>
+          </select>
+      </form>
+    </div>
+  </div>
+  <div class="footer-terminite">
+    <center><h4>Copyright © 2021 Université Belhadj Bouchaib Ain-Temouchent - Tous droits réservés</h4></center>
+  </div>
+
+       <script src="script.js"></script>
+        <!--cette script de bar navigation+bar recherche-->
+        <script>
+         const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+         searchBtn.onclick = ()=>{
+           form.classList.add("active");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+      </script>
+   </body>
+   </html>
